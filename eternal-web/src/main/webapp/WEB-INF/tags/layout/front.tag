@@ -11,7 +11,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <static:css/>
     <jsp:invoke fragment="css"/>
-    <title>33</title>
+    <title><spring:message code="app_title"/> </title>
 </head>
 <body>
 <div class="container">
