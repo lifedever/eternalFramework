@@ -3,9 +3,10 @@
     <parent>
         <artifactId>eternalFramework</artifactId>
         <groupId>io.github.eternalpro</groupId>
-        <version>${app.version}</version>
+        <version>1.0.0-20150615</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
+    <version>1.0.0-20150615</version>
     <url>${app.url}</url>
     <artifactId>eternal-utils</artifactId>
     <packaging>jar</packaging>
