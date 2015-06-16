@@ -44,8 +44,6 @@ import java.util.Properties;
 public class ApplicationConfiguration extends WebMvcConfigurerAdapter {
     @Resource
     private Environment environment;
-
-
     /**
      * config urlResolver
      * @return
