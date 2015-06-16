@@ -1,4 +1,4 @@
-package io.github.eternalpro.web;
+package io.github.eternalpro.web.controller;
 
 import io.github.eternalpro.model.User;
 import io.github.eternalpro.service.UserService;

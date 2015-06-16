@@ -29,6 +29,7 @@
             <version>${project.version}</version>
             <type>pom</type>
         </dependency>
+
         <dependency>
             <groupId>io.github.eternalpro</groupId>
             <artifactId>eternal-springcore</artifactId>

@@ -2,11 +2,11 @@ package io.github.eternalpro.web.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.util.JdbcUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -15,8 +15,10 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
@@ -39,6 +41,11 @@ public class ApplicationConfiguration extends WebMvcConfigurerAdapter {
     @Resource
     private Environment environment;
 
+
+    /**
+     * config urlResolver
+     * @return
+     */
     @Bean
     public UrlBasedViewResolver setupViewResolver() {
         UrlBasedViewResolver resolver = new UrlBasedViewResolver();
@@ -48,11 +55,19 @@ public class ApplicationConfiguration extends WebMvcConfigurerAdapter {
         return resolver;
     }
 
+    /**
+     * config resourceHandler
+     * @param registry
+     */
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/resources/**").addResourceLocations("/WEB-INF/resources/*");
+        registry.addResourceHandler("/assets/**").addResourceLocations("classpath:/assets/");
     }
 
+    /**
+     * config dataSource
+     * @return
+     */
     @Bean
     public DataSource dataSource() {
         DruidDataSource dataSource = new DruidDataSource();
@@ -61,6 +76,7 @@ public class ApplicationConfiguration extends WebMvcConfigurerAdapter {
             dataSource.setUrl(environment.getProperty("jdbc.url"));
             dataSource.setUsername(environment.getProperty("jdbc.username"));
             dataSource.setPassword(environment.getProperty("jdbc.password"));
+            dataSource.setMaxActive(50);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -68,8 +84,14 @@ public class ApplicationConfiguration extends WebMvcConfigurerAdapter {
     }
 
 
+    /**
+     * config entityManagerFactory
+     * @param dataSource
+     * @param env
+     * @return
+     */
     @Bean
-    LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource, Environment env) {
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource, Environment env) {
 
         LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactoryBean.setDataSource(dataSource);
@@ -77,33 +99,49 @@ public class ApplicationConfiguration extends WebMvcConfigurerAdapter {
         entityManagerFactoryBean.setPackagesToScan("io.github.eternalpro");
 
         Properties jpaProperties = new Properties();
-
-        //Configures the used database dialect. This allows Hibernate to create SQL
-        //that is optimized for the used database.
         jpaProperties.put("hibernate.dialect", env.getRequiredProperty("hibernate.dialect"));
-
-        //Specifies the action that is invoked to the database when the Hibernate
-        //SessionFactory is created or closed.
         jpaProperties.put("hibernate.hbm2ddl", env.getRequiredProperty("hibernate.hbm2ddl"));
-
-
-        //If the value of this property is true, Hibernate writes all SQL
-        //statements to the console.
-        jpaProperties.put("hibernate.show_sql",env.getRequiredProperty("hibernate.show_sql"));
-
-        //If the value of this property is true, Hibernate will format the SQL
-        //that is written to the console.
+        jpaProperties.put("hibernate.show_sql", env.getRequiredProperty("hibernate.show_sql"));
         jpaProperties.put("hibernate.format_sql", env.getRequiredProperty("hibernate.format_sql"));
 
         entityManagerFactoryBean.setJpaProperties(jpaProperties);
         return entityManagerFactoryBean;
     }
 
+    /**
+     * config jpa transactionManager
+     * @param entityManagerFactory
+     * @return
+     */
     @Bean
     public PlatformTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
-
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(entityManagerFactory);
         return transactionManager;
+    }
+
+    /**
+     * config i18n
+     * @return
+     */
+    @Bean
+    public ReloadableResourceBundleMessageSource resourceBundleMessageSource() {
+        ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+        messageSource.setBasename("classpath:i18n/messages");
+        return messageSource;
+    }
+
+    /* 注入Interceptor */
+
+    @Bean
+    public LocaleChangeInterceptor localeChangeInterceptor() {
+        LocaleChangeInterceptor interceptor = new LocaleChangeInterceptor();
+        interceptor.setParamName("lang");
+        return interceptor;
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(localeChangeInterceptor());
     }
 }
