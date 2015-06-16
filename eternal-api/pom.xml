@@ -6,10 +6,10 @@
         <version>1.0.0-20150615</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>eternal-web</artifactId>
+    <artifactId>eternal-api</artifactId>
     <packaging>war</packaging>
-    <name>eternal-web Maven Webapp</name>
-    <url>${app.url}</url>
+    <name>eternal-api Maven Webapp</name>
+    <url>http://maven.apache.org</url>
 
     <dependencies>
         <dependency>
@@ -17,13 +17,6 @@
             <artifactId>eternal-mvc</artifactId>
             <version>${project.version}</version>
         </dependency>
-
-        <dependency>
-            <groupId>jstl</groupId>
-            <artifactId>jstl</artifactId>
-            <version>1.2</version>
-        </dependency>
-
     </dependencies>
     <build>
         <plugins>
@@ -35,7 +28,7 @@
                 <configuration>
                     <connectors>
                         <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
-                            <port>8888</port>
+                            <port>8899</port>
                             <maxIdleTime>60000</maxIdleTime>
                         </connector>
                     </connectors>
@@ -49,7 +42,7 @@
                         </systemProperty>
                     </systemProperties>
                     <stopKey>app</stopKey>
-                    <stopPort>7533</stopPort>
+                    <stopPort>7833</stopPort>
                 </configuration>
             </plugin>
         </plugins>

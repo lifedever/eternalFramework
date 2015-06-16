@@ -1,7 +1,7 @@
-package io.github.eternalpro.web.config;
+package io.github.eternalpro.api.config;
 
-import io.github.eternalpro.config.spring.JPAConfiguration;
 import io.github.eternalpro.config.spring.I18NConfigurtion;
+import io.github.eternalpro.config.spring.JPAConfiguration;
 import org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
@@ -24,7 +24,7 @@ public class WebInitializer implements WebApplicationInitializer {
         AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
         ctx.register(JPAConfiguration.class);
         ctx.register(I18NConfigurtion.class);
-        ctx.register(WebResolverConfiguration.class);
+        ctx.register(APIResolverConfiguration.class);
         ctx.setServletContext(container);
         /* add ContextLoaderListener */
         container.addListener(new ContextLoaderListener(ctx));
