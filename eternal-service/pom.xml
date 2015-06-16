@@ -1,0 +1,39 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>eternalFramework</artifactId>
+        <groupId>io.github.eternalpro</groupId>
+        <version>1.0.0-20150615</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>eternal-service</artifactId>
+    <packaging>jar</packaging>
+
+    <name>eternal-service</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.github.eternalpro</groupId>
+            <artifactId>eternal-dao</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.eternalpro</groupId>
+            <artifactId>eternal-commons</artifactId>
+            <version>${project.version}</version>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>io.github.eternalpro</groupId>
+            <artifactId>eternal-springcore</artifactId>
+            <version>${project.version}</version>
+            <type>pom</type>
+        </dependency>
+    </dependencies>
+</project>

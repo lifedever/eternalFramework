@@ -10,6 +10,9 @@
         <module>eternal-web</module>
         <module>eternal-springcore</module>
         <module>eternal-commons</module>
+        <module>eternal-model</module>
+        <module>eternal-dao</module>
+        <module>eternal-service</module>
     </modules>
     <packaging>pom</packaging>
 
