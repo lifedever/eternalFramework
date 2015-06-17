@@ -1,31 +1,37 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="/taglibs.jsp"%>
+<%@include file="/taglibs.jsp" %>
 
 <layout:front>
     <jsp:attribute name="css"></jsp:attribute>
     <jsp:attribute name="main">
-        <div class="row">
-            <div class="col-md-12">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>序号</th>
-                        <th>用户名</th>
-                        <th>密码</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <c:forEach items="${users}" var="user" varStatus="i">
-                        <tr>
-                            <td>${i.index + 1}</td>
-                            <td>${user.username}</td>
-                            <td>${user.password}</td>
-                        </tr>
-                    </c:forEach>
-                    </tbody>
-                </table>
+        <nav class="navbar navbar-masthead navbar-default navbar-fixed-top ">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><spring:message code="app_title"/> </a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">Link</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">注册</a></li>
+                        <li><a href="#">登录</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
+        </nav>
     </jsp:attribute>
     <jsp:attribute name="js">
     </jsp:attribute>

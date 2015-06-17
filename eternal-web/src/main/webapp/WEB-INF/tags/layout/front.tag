@@ -14,7 +14,7 @@
     <title><spring:message code="app_title"/> </title>
 </head>
 <body>
-<div class="container">
+<div class="mainContainer">
     <jsp:invoke fragment="main"/>
 </div>
 <static:js/>
