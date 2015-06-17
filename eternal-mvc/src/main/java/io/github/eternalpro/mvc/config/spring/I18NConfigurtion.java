@@ -1,4 +1,4 @@
-package io.github.eternalpro.api.config;
+package io.github.eternalpro.mvc.config.spring;
 
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;

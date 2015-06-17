@@ -1,4 +1,4 @@
-package io.github.eternalpro.web.config.spring;
+package io.github.eternalpro.mvc.config.spring;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.util.JdbcUtils;
@@ -69,7 +69,7 @@ public class JPAConfiguration extends WebMvcConfigurerAdapter {
 
         Properties jpaProperties = new Properties();
         jpaProperties.put("hibernate.dialect", env.getRequiredProperty("hibernate.dialect"));
-        jpaProperties.put("hibernate.hbm2ddl", env.getRequiredProperty("hibernate.hbm2ddl"));
+        jpaProperties.put("hibernate.hbm2ddl.auto", env.getRequiredProperty("hibernate.hbm2ddl"));
         jpaProperties.put("hibernate.show_sql", env.getRequiredProperty("hibernate.show_sql"));
         jpaProperties.put("hibernate.format_sql", env.getRequiredProperty("hibernate.format_sql"));
 
