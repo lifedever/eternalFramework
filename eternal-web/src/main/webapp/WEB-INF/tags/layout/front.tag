@@ -15,6 +15,7 @@
 </head>
 <body>
 <div class="mainContainer">
+    <widget:header/>
     <jsp:invoke fragment="main"/>
 </div>
 <static:js/>

@@ -5,3 +5,4 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="static" tagdir="/WEB-INF/tags/static"%>
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layout"%>
+<%@ taglib prefix="widget" tagdir="/WEB-INF/tags/widget"%>

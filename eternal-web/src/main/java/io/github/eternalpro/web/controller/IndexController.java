@@ -24,4 +24,9 @@ public class IndexController {
         model.addAttribute("users", users);
         return "index";
     }
+
+    @RequestMapping("/signup")
+    public String signup(){
+        return "signup";
+    }
 }
