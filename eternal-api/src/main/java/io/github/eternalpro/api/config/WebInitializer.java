@@ -1,7 +1,5 @@
 package io.github.eternalpro.api.config;
 
-import io.github.eternalpro.config.spring.I18NConfigurtion;
-import io.github.eternalpro.config.spring.JPAConfiguration;
 import org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;

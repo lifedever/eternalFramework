@@ -14,7 +14,6 @@
         <module>eternal-dao</module>
         <module>eternal-service</module>
         <module>eternal-api</module>
-        <module>eternal-mvc</module>
     </modules>
     <packaging>pom</packaging>
 

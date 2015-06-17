@@ -1,4 +1,4 @@
-package io.github.eternalpro.config.spring;
+package io.github.eternalpro.web.config.spring;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.util.JdbcUtils;

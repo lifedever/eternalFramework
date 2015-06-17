@@ -1,4 +1,4 @@
-package io.github.eternalpro.web.config;
+package io.github.eternalpro.web.config.spring;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
