@@ -1,7 +1,7 @@
 <%@tag pageEncoding="UTF-8"  body-content="empty"%>
 <%@include file="/taglibs.jsp"%>
 
-<nav class="navbar navbar-masthead navbar-default navbar-fixed-top ">
+<nav class="navbar navbar-masthead navbar-default navbar-toolbar navbar-fixed-top ">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
