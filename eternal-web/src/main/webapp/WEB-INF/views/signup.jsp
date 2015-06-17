@@ -35,7 +35,7 @@
 
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                        <input type="password" class="form-control" id="confirm_password" laceholder="最少6个字符">
+                                        <input type="password" class="form-control" id="confirm_password" placeholder="最少6个字符">
                                     </div>
                                 </div>
                                 <div class="checkbox">

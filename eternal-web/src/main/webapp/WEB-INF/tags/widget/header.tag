@@ -1,8 +1,8 @@
 <%@tag pageEncoding="UTF-8"  body-content="empty"%>
 <%@include file="/taglibs.jsp"%>
 
-<nav class="navbar navbar-masthead navbar-default navbar-toolbar navbar-fixed-top ">
-    <div class="container-fluid">
+<nav class="navbar navbar-masthead navbar-default navbar-toolbar navbar-fixed-top">
+    <div class="container-fluid bg-whitesmoke">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
