@@ -1,3 +1,7 @@
+/* html font  */
+html body {
+    font-family:  "宋体",arial,tahoma,sans-serif;
+}
 /* margin5 */
 .margin5-t {
     margin-top: 5px;
@@ -359,6 +363,22 @@ a:active {
     border-right: 1px solid #d8d8d8;
 }
 
+.bordered-t-d {
+    border-top: 1px solid #c6c6c6;
+}
+
+.bordered-b-d {
+    border-bottom: 1px solid #c6c6c6;
+}
+
+.bordered-l-d {
+    border-left: 1px solid #c6c6c6;
+}
+
+.bordered-r-d {
+    border-right: 1px solid #c6c6c6;
+}
+
 /* footer */
 footer {
     position: absolute;
@@ -373,6 +393,7 @@ footer ul.menu>li {
     list-style: none;
     padding-left: 10px;
 }
+
 
 /* background */
 .bg-whitesmoke {

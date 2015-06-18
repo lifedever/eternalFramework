@@ -13,9 +13,9 @@
                         <li><a href="#">帮助</a></li>
                         <li><a href="#">反馈</a></li>
                         <li><a href="#">关于我们</a></li>
-                        <li class="driver"></li>
-                        <li><a href="#"><span class="flag-icon flag-icon-um"></span> 英文</a></li>
-                        <li><a href="#"><span class="flag-icon flag-icon-cn"></span> 中文</a></li>
+                        <li><span class="bordered-l-d"></span></li>
+                        <li><a href="#"><span class="flag-icon flag-icon-um"></span></a></li>
+                        <li><a href="#"><span class="flag-icon flag-icon-cn"></span></a></li>
                     </ul>
                 </div>
             </div>
