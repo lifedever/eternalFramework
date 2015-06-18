@@ -1,14 +1,14 @@
 package io.github.eternalpro.web.config.spring;
 
+import io.github.eternalpro.web.interceptor.PjaxHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
+
+import javax.annotation.Resource;
 
 /**
  * Created by gefangshuai on 2015/6/16.
@@ -17,6 +17,9 @@ import org.springframework.web.servlet.view.UrlBasedViewResolver;
 @ComponentScan("io.github.eternalpro.web")
 @EnableWebMvc
 public class WebResolverConfiguration extends WebMvcConfigurerAdapter{
+
+    @Resource
+    private PjaxHandler pjaxHandler;
 
     /**
      * config urlResolver
@@ -45,4 +48,8 @@ public class WebResolverConfiguration extends WebMvcConfigurerAdapter{
         registry.addResourceHandler("/assets/**").addResourceLocations("/assets/");
     }
 
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(pjaxHandler);
+    }
 }

@@ -6,7 +6,7 @@
         <div class="col-md-4">
             <div class="panel panel-default">
                 <div class="panel-heading bordered-b">
-                    <span class="font-large">创建您的<spring:message code="app_title"/>账户</span>
+                    <span class="font-large">登录您的<spring:message code="app_title"/>账户</span>
                 </div>
                 <div class="panel-body">
                     <form>
@@ -26,25 +26,12 @@
                                 <input type="password" class="form-control" id="password" placeholder="最少6个字符">
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="confirm_password">确认密码</label>
-
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                <input type="password" class="form-control" id="confirm_password" placeholder="最少6个字符">
-                            </div>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox"> 我同意 <a href="#" class="a-decoration">《网站协议》</a>
-                            </label>
-                        </div>
-                        <button type="submit" class="btn btn-primary">注册</button>
-                        <a href="/signin" class="btn btn-default">登录</a>
+                        <button type="submit" class="btn btn-primary">登录</button>
+                        <a href="/signup" class="btn btn-default">注册</a>
                     </form>
                 </div>
                 <div class="panel-footer text-info">
-                    <strong>注册成为<spring:message code="app_title"/>用户，享受健康生活！</strong>
+                    <strong>进入<spring:message code="app_title"/>，享受健康生活！</strong>
                 </div>
             </div>
         </div>

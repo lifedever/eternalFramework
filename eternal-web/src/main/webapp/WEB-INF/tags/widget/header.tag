@@ -12,7 +12,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"><spring:message code="app_title"/> </a>
+            <a class="navbar-brand" href="/"><spring:message code="app_title"/> </a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -22,7 +22,7 @@
                 <li><a href="#">Link</a></li>
             </ul>
 
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right" data-pjax>
                 <li><a href="/signup">注册</a></li>
                 <li><a href="#">登录</a></li>
             </ul>
