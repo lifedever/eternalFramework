@@ -24,7 +24,7 @@
 
             <ul class="nav navbar-nav navbar-right" data-pjax>
                 <li><a href="/signup">注册</a></li>
-                <li><a href="#">登录</a></li>
+                <li><a href="/signin">登录</a></li>
             </ul>
         </div>
     </div>
