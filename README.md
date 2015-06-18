@@ -19,5 +19,32 @@ eternalFramework
 8. eternal-api: api数据接口实现
 9. eternal-web: 前端页面访问实现
 
+# 如何运行
+1. maven、jdk1.7+
+2. 建立mysql数据库
+
+    ```sql
+    create database quickstart default charset utf8
+    ```
+3. 修改数据库配置
+
+   打开 `eternal-mvc` -> `src` -> `main` -> `resources` -> `db.properties` 修改相关配置
+   
+4. 进入 `eternalFramework` 根目录
+
+5. 运行命令
+
+    ```bash
+    mvn clean compile install
+    ```
+6. 进入 `eternal-web` 
+
+7. 运行项目
+    
+    ```bash
+    mvn jetty:run
+    ```
+8. 访问：[http://localhost:8888](http://localhost:8888)
+
 # My Blog
 [http://wincn.net](http://wincn.net)
