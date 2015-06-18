@@ -19,6 +19,7 @@
         <jsp:invoke fragment="main"/>
     </div>
     <widget:footer/>
+    <widget:loading/>
 </div>
 <static:js/>
 <jsp:invoke fragment="js"/>

@@ -8,8 +8,9 @@ if(isPjax == 'true') {
     $.pjax.reload({container: '#pjax-container'})
 }
 $(document).on('pjax:send', function() {
-    console.log('dddd');
+    $('#loading').show();
 });
 $(document).on('pjax:complete', function() {
-    console.log('aaa');
+    $('#loading').hide();
+
 });
