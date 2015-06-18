@@ -5,9 +5,11 @@ eternalFramework
 # 框架说明
 整个框架基于`Spring mvc` + `spring data jpa with hibernate` + `mysql database`。
 包结构分的尽量细是为了扩展其他功能，如后期扩展`eternal-api`供移动端调用，可以很简单的依赖`eternal-service`而不用去跟`eternal-web` 耦合，解耦合并提高模块的复用性。
+
 # 关于前端
 1. bootstrap 3
 2. 引入pjax实现pustState + ajax技术，局部刷新提高访问速度
+
 # 模块简单说明
 1. eternal-commons: 公共的jar
 2. eternal-springcore: spring核心jar
