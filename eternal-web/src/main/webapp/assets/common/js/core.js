@@ -3,24 +3,17 @@
  * Created by fangshuai on 2015/6/18.
  */
 $(document).pjax('[data-pjax] a, a[data-pjax]', '#pjax-container');
-/* support pjax! */
+// support pjax!
 var isPjax = $('meta[http-equiv="X-PJAX"]').attr('content');
 if(isPjax == 'true') {
     $.pjax.reload({container: '#pjax-container'})
 }
+
 /**
  * 请求server data前
  */
 $(document).on('pjax:send', function(e) {
-    console.log(e);
     $('#loading').show();
-});
-
-/**
- * server data替换前
- */
-$(document).on('pjax:beforeReplace', function(){
-
 });
 
 /**
@@ -28,5 +21,4 @@ $(document).on('pjax:beforeReplace', function(){
  */
 $(document).on('pjax:complete', function() {
     $('#loading').hide();
-
 });
