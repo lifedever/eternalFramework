@@ -14,7 +14,7 @@
 </head>
 <body>
 <div class="mainContainer">
-    <widget:header/>
+    <widget:nav/>
     <div id="pjax-container" data-pjax>
         <jsp:invoke fragment="main"/>
     </div>

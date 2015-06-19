@@ -3,6 +3,7 @@ package io.github.eternalpro.api.config;
 import io.github.eternalpro.api.config.spring.APIResolverConfiguration;
 import io.github.eternalpro.mvc.config.spring.I18NConfigurtion;
 import io.github.eternalpro.mvc.config.spring.JPAConfiguration;
+import io.github.eternalpro.mvc.config.spring.WebInitUtils;
 import org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
@@ -29,15 +30,10 @@ public class WebInitializer implements WebApplicationInitializer {
         ctx.setServletContext(container);
         /* add ContextLoaderListener */
         container.addListener(new ContextLoaderListener(ctx));
-        /* charEncodingfilter */
-        FilterRegistration charEncodingfilter = container.addFilter("CharacterEncodingFilter", CharacterEncodingFilter.class);
-        charEncodingfilter.setInitParameter("encoding", "UTF-8");
-        charEncodingfilter.setInitParameter("forceEncoding", "true");
-        charEncodingfilter.addMappingForUrlPatterns(null, false, "/*");
-
+       /* charEncodingfilter */
+        WebInitUtils.addCharEncodingfilter(container);
         /* openEntityManagerInViewFilter */
-        FilterRegistration openEntityManagerInViewFilter = container.addFilter("openEntityManagerInViewFilter", OpenEntityManagerInViewFilter.class);
-        openEntityManagerInViewFilter.addMappingForUrlPatterns(null, false , "/*");
+        WebInitUtils.addOpenEntityManagerInViewFilter(container);
 
         ServletRegistration.Dynamic servlet = container.addServlet("dispatcher", new DispatcherServlet(ctx));
         servlet.addMapping("/");
