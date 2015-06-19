@@ -23,21 +23,21 @@ import javax.servlet.ServletRegistration;
 public class WebInitializer implements WebApplicationInitializer {
 
     @Override
-    public void onStartup(ServletContext container) throws ServletException {
+    public void onStartup(ServletContext context) throws ServletException {
         AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
         ctx.register(JPAConfiguration.class);
         ctx.register(I18NConfigurtion.class);
         ctx.register(WebResolverConfiguration.class);
-        ctx.setServletContext(container);
+        ctx.setServletContext(context);
         /* add ContextLoaderListener */
-        container.addListener(new ContextLoaderListener(ctx));
-        /* charEncodingfilter */
-        WebInitUtils.addCharEncodingfilter(container);
-        /* openEntityManagerInViewFilter */
-        WebInitUtils.addOpenEntityManagerInViewFilter(container);
-        /* shiro filter */
-
-        ServletRegistration.Dynamic servlet = container.addServlet("dispatcher", new DispatcherServlet(ctx));
+        context.addListener(new ContextLoaderListener(ctx));
+        /* charEncodingfilter  support */
+        WebInitUtils.addCharEncodingfilter(context);
+        /* openEntityManagerInViewFilter support */
+        WebInitUtils.addOpenEntityManagerInViewFilter(context);
+        /* shiro filter support */
+        WebInitUtils.addShiroFilter(context);
+        ServletRegistration.Dynamic servlet = context.addServlet("dispatcher", new DispatcherServlet(ctx));
         servlet.addMapping("/");
         servlet.setLoadOnStartup(1);
     }

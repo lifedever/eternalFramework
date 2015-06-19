@@ -6,4 +6,5 @@
 <%@ taglib prefix="static" tagdir="/WEB-INF/tags/static"%>
 <%@ taglib prefix="layout" tagdir="/WEB-INF/tags/layout"%>
 <%@ taglib prefix="widget" tagdir="/WEB-INF/tags/widget"%>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags"%>
 <c:set var="ctx" value="<%=request.getContextPath()%>" scope="request" />

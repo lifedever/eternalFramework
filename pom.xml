@@ -15,6 +15,7 @@
         <module>eternal-service</module>
         <module>eternal-api</module>
         <module>eternal-mvc</module>
+        <module>eternal-shiro</module>
     </modules>
     <packaging>pom</packaging>
 

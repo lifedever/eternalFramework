@@ -9,13 +9,13 @@
                     <span class="font-large">登录您的<spring:message code="app_title"/>账户</span>
                 </div>
                 <div class="panel-body">
-                    <form>
+                    <form method="post" action="/signin">
                         <div class="form-group">
                             <label for="username">用户名</label>
 
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input type="text" class="form-control" id="username" placeholder="不能超过10个字符">
+                                <input type="text" class="form-control" id="username" name="username" placeholder="不能超过10个字符">
                             </div>
                         </div>
                         <div class="form-group">
@@ -23,7 +23,7 @@
 
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                <input type="password" class="form-control" id="password" placeholder="最少6个字符">
+                                <input type="password" class="form-control" name="password" id="password" placeholder="最少6个字符">
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">登录</button>

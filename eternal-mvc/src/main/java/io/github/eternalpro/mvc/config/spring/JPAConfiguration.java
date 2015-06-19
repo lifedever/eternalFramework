@@ -29,7 +29,7 @@ import java.util.Properties;
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages = {"io.github.eternalpro"})
 @PropertySource("classpath:db.properties")
-public class JPAConfiguration extends WebMvcConfigurerAdapter {
+public class JPAConfiguration {
     @Resource
     private Environment environment;
 

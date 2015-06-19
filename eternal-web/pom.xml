@@ -18,6 +18,19 @@
             <version>${project.version}</version>
         </dependency>
 
+        <!-- add shiro dependency -->
+        <dependency>
+            <groupId>io.github.eternalpro</groupId>
+            <artifactId>eternal-shiro</artifactId>
+            <version>${project.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>io.github.eternalpro</groupId>
+                    <artifactId>eternal-service</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- end shiro dependency -->
         <dependency>
             <groupId>jstl</groupId>
             <artifactId>jstl</artifactId>

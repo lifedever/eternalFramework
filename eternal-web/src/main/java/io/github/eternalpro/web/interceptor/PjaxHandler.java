@@ -33,7 +33,9 @@ public class PjaxHandler extends HandlerInterceptorAdapter {
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
         String _pjax = request.getParameter("_pjax");
-        logger.debug("pjax container: " + _pjax);
+        if (StringUtils.isNotBlank(_pjax)) {
+            logger.debug("pjax container: " + _pjax);
+        }
         if (StringUtils.isBlank(_pjax) && hasPjaxAnnotation((HandlerMethod) handler)) {
             logger.debug("--- render layout ! --- ");
             response.setHeader("X-PJAX-URL", request.getServletPath());
