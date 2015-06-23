@@ -4,8 +4,11 @@ import org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.filter.DelegatingFilterProxy;
 
+import javax.servlet.DispatcherType;
 import javax.servlet.FilterRegistration;
 import javax.servlet.ServletContext;
+import java.util.EnumSet;
+import java.util.HashSet;
 
 /**
  * 初始化web工具类
@@ -39,6 +42,7 @@ public class WebInitUtils {
      */
     public static void addShiroFilter(ServletContext context) {
         FilterRegistration shiroFilter = context.addFilter("shiroFilter", DelegatingFilterProxy.class);
-        shiroFilter.addMappingForUrlPatterns(null, false , "/*");
+        EnumSet<DispatcherType> dispatcherTypes = EnumSet.of(DispatcherType.REQUEST, DispatcherType.FORWARD, DispatcherType.ERROR, DispatcherType.INCLUDE);
+        shiroFilter.addMappingForUrlPatterns(dispatcherTypes, false , "/*");
     }
 }

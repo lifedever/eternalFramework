@@ -47,4 +47,10 @@ public class IndexController {
     public String signin() {
         return "signin";
     }
+
+    @RequestMapping("/logout")
+    public String logout(){
+        SecurityUtils.getSubject().logout();
+        return "redirect:/";
+    }
 }
