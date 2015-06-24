@@ -5,11 +5,9 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
-import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -24,6 +22,7 @@ public class PjaxHandler extends HandlerInterceptorAdapter {
 
     /**
      * controller执行完，跳转视图之前
+     *
      * @param request
      * @param response
      * @param handler
@@ -37,11 +36,11 @@ public class PjaxHandler extends HandlerInterceptorAdapter {
             logger.debug("pjax container: " + _pjax);
         }
         if (StringUtils.isBlank(_pjax) && hasPjaxAnnotation((HandlerMethod) handler)) {
-            logger.debug("--- render layout ! --- ");
-            response.setHeader("X-PJAX-URL", request.getServletPath().trim());
+            logger.debug("--- render layout: " + StringUtils.remove(request.getServletPath(), "/ ") + "--- ");
+            response.setHeader("X-PJAX-URL", StringUtils.remove(request.getServletPath(), "/ ") );
             modelAndView.setViewName("layout/home");
             request.setAttribute("isPjax", "true");
-        }else{
+        } else {
             request.setAttribute("isPjax", "false");
         }
     }

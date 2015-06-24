@@ -22,6 +22,8 @@ public class AdminController {
     @Pjax
     @RequestMapping
     public String index(Model model) {
+        List<User> users = userService.findAll();
+        model.addAttribute("users", users);
         return "admin/index";
     }
 }

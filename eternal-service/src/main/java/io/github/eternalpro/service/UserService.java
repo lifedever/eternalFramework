@@ -5,6 +5,7 @@ import io.github.eternalpro.model.User;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by gefangshuai on 2015/6/16.
@@ -19,4 +20,7 @@ public class UserService {
         return userDao.save(user);
     }
 
+    public List<User> findAll() {
+        return userDao.findAll();
+    }
 }

@@ -14,13 +14,13 @@ if(isPjax == 'true') {
  * 请求server data前
  */
 $(document).on('pjax:send', function(e) {
-    //$('#loading').show();
+    $('#loading').show();
 });
 
 /**
  * server data 请求完后
  */
 $(document).on('pjax:complete', function() {
-    //$('#loading').hide();
+    $('#loading').hide();
 });
 
