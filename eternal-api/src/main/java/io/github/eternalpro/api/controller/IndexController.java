@@ -20,6 +20,6 @@ public class IndexController {
 
     @RequestMapping
     public List<User> getUsers(){
-        return userService.getUsers();
+        return null;
     }
 }

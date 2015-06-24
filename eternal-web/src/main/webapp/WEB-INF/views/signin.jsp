@@ -15,7 +15,7 @@
 
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input type="text" class="form-control" id="username" name="username" placeholder="不能超过10个字符">
+                                <input type="text" class="form-control required" id="username" name="username" placeholder="不能超过10个字符">
                             </div>
                         </div>
                         <div class="form-group">
@@ -23,7 +23,7 @@
 
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                <input type="password" class="form-control" name="password" id="password" placeholder="最少6个字符">
+                                <input type="password" class="form-control {required: true, minlength: 6}" name="password" id="password" placeholder="最少6个字符">
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">登录</button>
@@ -38,3 +38,7 @@
         <div class="col-md-4"></div>
     </div>
 </div>
+<script>
+    // validFrom
+    $('form').validate();
+</script>

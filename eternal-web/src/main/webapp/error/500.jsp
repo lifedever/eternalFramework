@@ -15,9 +15,10 @@
                     <div>
                         <%=exception.getMessage()%>
                     </div>
-                    <div>
-                        <a href="#">返回首页</a>
-
+                    <div class="margin10-t">
+                        <a class="text-danger" href="/">返回首页</a>
+                        |
+                        <a href="javascript:history.go(-1)">返回上一页</a>
                     </div>
                 </div>
             </div>

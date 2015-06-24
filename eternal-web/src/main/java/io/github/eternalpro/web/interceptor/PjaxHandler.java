@@ -38,8 +38,8 @@ public class PjaxHandler extends HandlerInterceptorAdapter {
         }
         if (StringUtils.isBlank(_pjax) && hasPjaxAnnotation((HandlerMethod) handler)) {
             logger.debug("--- render layout ! --- ");
-            response.setHeader("X-PJAX-URL", request.getServletPath());
-            modelAndView.setViewName("index");
+            response.setHeader("X-PJAX-URL", request.getServletPath().trim());
+            modelAndView.setViewName("layout/home");
             request.setAttribute("isPjax", "true");
         }else{
             request.setAttribute("isPjax", "false");

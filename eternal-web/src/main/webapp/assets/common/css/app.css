@@ -2,6 +2,23 @@ body {
     padding-top: 50px;
 }
 
+label.error {
+    font-weight: normal;
+    color: red;
+    position: absolute;
+    left: 30px;
+    top: 32px;
+    z-index: 999;
+}
+
+input.error {
+    border-color: red;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
 #loading {
     display: none;
     position: fixed;

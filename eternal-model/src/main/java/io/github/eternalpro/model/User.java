@@ -1,8 +1,10 @@
 package io.github.eternalpro.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.hibernate.annotations.GeneratorType;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * Created by gefangshuai on 2015/6/16.
@@ -15,6 +17,7 @@ public class User {
     private String password;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public long getId() {
         return id;
     }
@@ -23,6 +26,8 @@ public class User {
         this.id = id;
     }
 
+    @NotNull
+    @Size(min=3, max = 14)
     public String getUsername() {
         return username;
     }
@@ -31,6 +36,7 @@ public class User {
         this.username = username;
     }
 
+    @NotNull
     public String getPassword() {
         return password;
     }

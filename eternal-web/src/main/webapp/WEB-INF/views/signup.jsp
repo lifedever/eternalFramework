@@ -9,13 +9,13 @@
                     <span class="font-large">创建您的<spring:message code="app_title"/>账户</span>
                 </div>
                 <div class="panel-body">
-                    <form>
+                    <form method="post" class="valid-form">
                         <div class="form-group">
                             <label for="username">用户名</label>
 
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input type="text" class="form-control" id="username" placeholder="不能超过10个字符">
+                                <input type="text" class="form-control {required: true, maxlength: 10}" id="username" name="username" placeholder="不能超过10个字符">
                             </div>
                         </div>
                         <div class="form-group">
@@ -23,7 +23,7 @@
 
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                <input type="password" class="form-control" id="password" placeholder="最少6个字符">
+                                <input type="password" class="form-control {required: true, minlength: 6}" id="password" name="password" placeholder="最少6个字符">
                             </div>
                         </div>
                         <div class="form-group">
@@ -31,12 +31,12 @@
 
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                <input type="password" class="form-control" id="confirm_password" placeholder="最少6个字符">
+                                <input type="password" class="form-control {required: true}" equalTo="#password" id="confirm_password" placeholder="最少6个字符">
                             </div>
                         </div>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox"> 我同意 <a href="#" class="a-decoration">《网站协议》</a>
+                                <input type="checkbox" name="agree"> 我同意 <a href="#" class="a-decoration">《网站协议》</a>
                             </label>
                         </div>
                         <button type="submit" class="btn btn-primary">注册</button>
@@ -51,3 +51,7 @@
         <div class="col-md-4"></div>
     </div>
 </div>
+<script>
+    // validFrom
+    $('form.valid-form').validate();
+</script>

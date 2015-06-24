@@ -23,3 +23,4 @@ $(document).on('pjax:send', function(e) {
 $(document).on('pjax:complete', function() {
     //$('#loading').hide();
 });
+

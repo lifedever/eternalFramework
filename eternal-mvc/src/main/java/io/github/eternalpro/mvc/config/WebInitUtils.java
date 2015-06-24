@@ -1,4 +1,4 @@
-package io.github.eternalpro.mvc.config.spring;
+package io.github.eternalpro.mvc.config;
 
 import org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter;
 import org.springframework.web.filter.CharacterEncodingFilter;
@@ -8,7 +8,6 @@ import javax.servlet.DispatcherType;
 import javax.servlet.FilterRegistration;
 import javax.servlet.ServletContext;
 import java.util.EnumSet;
-import java.util.HashSet;
 
 /**
  * 初始化web工具类
